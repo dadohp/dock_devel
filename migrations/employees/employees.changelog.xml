@@ -1,0 +1,92 @@
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet id="tag_before_v_1_3" author="dado" context="productions">
+      <tagDatabase tag="before_v1.1" />
+    </changeSet>
+
+    <changeSet id="create-employees1" author="dado" context="productions">
+        <createTable tableName="employees">
+            <column name="emp_no" type="int(10)">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="birth_date" type="datetime">    
+            <constraints nullable="false"/>
+            </column>
+	    <column name="first_name" type="varchar(100)">    
+            </column>
+	    <column name="last_name" type="varchar(100)">    
+            <constraints nullable="false"/>
+            </column>
+            <column name="gender" type="enum('m','f')">    
+            <constraints nullable="false"/>
+	    </column>
+	    <column name="hire_date" type="datetime">    
+            <constraints nullable="false"/>
+	    </column>
+        </createTable>
+    </changeSet>
+
+   <!-- <changeSet id="drop-column-employees" author="dado" context="productions">
+    <dropColumn catalogName="demo"
+            columnName="gender"
+            schemaName="public"
+            tableName="employees"/>
+</changeSet>
+
+<changeSet id="add-column-employees" author="dado" context="productions">
+    <addColumn catalogName="demo"
+            schemaName="public"
+            tableName="employees">
+        <column name="gender" type="enum('m','f')">    
+            <constraints nullable="false"/>
+            </column>
+    </addColumn>
+</changeSet> -->
+
+
+<changeSet id="rename-column-department1" author="dado" context="productions">
+    <renameColumn catalogName="demo"
+            columnDataType="int"
+            newColumnName="dept_no"
+            oldColumnName="id"
+            schemaName="public"
+            tableName="department"/>
+</changeSet>
+
+<changeSet id="rename1-column-department1" author="dado" context="productions">
+    <renameColumn catalogName="demo"
+            columnDataType="varchar(50)"
+            newColumnName="dept_name"
+            oldColumnName="name"
+            schemaName="public"
+            tableName="department"/>
+</changeSet>
+<!--
+<changeSet id="insert-column-department" author="dado" context="productions">
+    <sql dbms="mysql"
+            endDelimiter="\nGO"
+            splitStatements="true"
+            stripComments="true">insert into depart (dept_no,dept_name) values (1,'IT')
+        <comment>Ini untuk IT?</comment>
+    </sql>
+</changeSet>
+-->
+
+<changeSet id="load-data-department" author="dado" context="productions">
+<loadData catalogName="demo"
+            encoding="UTF-8"
+            file="/Users/dado/db/dbmigrations/dept_number.csv"
+            
+            schemaName="public"
+            
+            tableName="department">
+        
+    </loadData>
+</changeSet>
+
+</databaseChangeLog>

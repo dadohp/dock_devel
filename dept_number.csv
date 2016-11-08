@@ -1,0 +1,11 @@
+insert into department (dept_no,dept_name) values (1,'IT');
+insert into department (dept_no,dept_name) values (2,'QCS');
+insert into department (dept_no,dept_name) values (3,'Marketing');
+insert into department (dept_no,dept_name) values (4,'Sales');
+insert into department (dept_no,dept_name) values (5,'Humas');
+insert into department (dept_no,dept_name) values (6,'GA');
+insert into department (dept_no,dept_name) values (7,'Finance');
+insert into department (dept_no,dept_name) values (8,'Legal');
+insert into department (dept_no,dept_name) values (9,'BI');
+insert into department (dept_no,dept_name) values (10,'Resepsionis');
+
