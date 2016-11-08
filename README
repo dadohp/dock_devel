@@ -1,1 +1,6 @@
-Docker MySQL and Liquidbase for DBMigrations
+Docker MySQL running in OSX and Liquidbase for DBMigrations
+
+$ docker-compose up
+$ ./liquidbase validate
+$ ./liquidbase update
+$ docker-compose exec mysql /bin/bash
